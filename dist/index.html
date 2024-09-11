@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freedom Wars</title>
+    <style>body, html {
+  background-color: gray;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+canvas {
+  border: 1px solid #000;
+}
+</style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="500" height="500"></canvas>
+
+<script>const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+const currentHour = new Date().getHours();
+function drawScene() {
+    ctx.fillStyle = "grey";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    if (currentHour >= 18 || currentHour < 6) drawMoon();
+    else drawSun();
+}
+function drawSun() {
+    ctx.beginPath();
+    ctx.arc(50, 450, 40, 0, Math.PI * 2, false);
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+    ctx.closePath();
+}
+function drawMoon() {
+    ctx.beginPath();
+    ctx.arc(50, 450, 40, 0, Math.PI * 2, false);
+    ctx.fillStyle = "lightgray";
+    ctx.fill();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.arc(70, 450, 40, 0, Math.PI * 2, false);
+    ctx.fillStyle = "grey";
+    ctx.fill();
+    ctx.closePath();
+}
+drawScene();
+
+</script>
+
+<script src="/FreedomWars.59712999.js"></script></body>
+</html>
